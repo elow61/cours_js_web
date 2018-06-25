@@ -1,0 +1,51 @@
+var listeLiens = [
+    {
+        titre: "So Foot",
+        url: "http://sofoot.com",
+        auteur: "yann.usaille"
+    },
+    {
+        titre: "Guide d'autodéfense numérique",
+        url: "http://guide.boum.org",
+        auteur: "paulochon"
+    },
+    {
+        titre: "L'encyclopédie en ligne Wikipedia",
+        url: "http://Wikipedia.org",
+        auteur: "annie.zette"
+    }
+];
+
+var liens = listeLiens;
+
+liens.forEach(function (lien) {
+	// Paragraphe pour chacune des listes du tableau
+	var paraElt = document.createElement("p");
+	paraElt.setAttribute("class", "lien");
+	
+	// Lien (pour titre et url)
+	var linkElt = document.createElement("a");
+	linkElt.href = lien.url;
+	linkElt.style.textDecoration = "none";
+	
+	// Titre
+	var titreElt = document.createElement("h2");
+	titreElt.style.color = "#428bca";
+	titreElt.textContent = lien.titre + " ";
+	
+	// URL
+	var urlElt = document.createElement("span");
+	urlElt.textContent = lien.url;
+	urlElt.style.color = "black";
+	
+	// Auteur
+	var auteurElt = document.createElement("p");
+	auteurElt.textContent = "Ajouté par " + lien.auteur;
+	
+	// Ajout des éléments
+	paraElt.appendChild(linkElt);
+	linkElt.appendChild(titreElt);
+	titreElt.appendChild(urlElt);
+	paraElt.appendChild(auteurElt);
+	document.getElementById("contenu").appendChild(paraElt);
+});
